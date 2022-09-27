@@ -18,9 +18,9 @@ class ProcessingServiceBase(ServiceBaseController):
     def replace_scad_setting(self):
         if len(self.name) != 0:
             # input file
-            fin = open("../ProcessingService/PROCESSING_DIRECTORY/keychain.scad", "rt")
+            fin = open("ProcessingService/PROCESSING_DIRECTORY/keychain.scad", "rt")
             # output file to write the result to
-            fout = open("../ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad", "wt")
+            fout = open("ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad", "wt")
             # for each line in the input file
             for line in fin:
                 # read replace the string and write to output file
@@ -49,8 +49,8 @@ class ProcessingServiceBase(ServiceBaseController):
             print(line)
         if osr.good():
             print("Successfully created keychain.stl")
-            os.remove("../ProcessingService/PROCESSING_DIRECTORY/keychain.scad")
-            os.remove("../ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad")
+            os.remove("ProcessingService/PROCESSING_DIRECTORY/keychain.scad")
+            os.remove("ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad")
             self.mediator.notify(self, "E", None)
 
 

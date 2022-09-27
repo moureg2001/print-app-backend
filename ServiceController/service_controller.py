@@ -60,12 +60,12 @@ class ConcreteMediator(ServiceMediator):
 
         elif event == "B":  # Blob Service
             print("Mediator reacts on B and triggers following operations: -> Blob Service")
-            scad_relative_path = "../ProcessingService/PROCESSING_DIRECTORY/keychain.scad"
+            scad_relative_path = "ProcessingService/PROCESSING_DIRECTORY/keychain.scad"
             if os.path.isfile(scad_relative_path):
                 os.remove(scad_relative_path)
             self.save_file_for_processing(self.blob_file_service.download_file("keychain.scad"), scad_relative_path)
             if len(user.keychain.logo) != 0:
-                logo_relative_path = f"../ProcessingService/PROCESSING_DIRECTORY/{user.keychain.logo}.svg"
+                logo_relative_path = f"ProcessingService/PROCESSING_DIRECTORY/{user.keychain.logo}.svg"
                 self.save_file_for_processing(self.blob_logo_service.download_file(user.keychain.logo + ".svg"),
                                               logo_relative_path)
 
@@ -75,8 +75,8 @@ class ConcreteMediator(ServiceMediator):
                   ".stl file on ATTACHMENT folder to send it as attachment with the Email ")
             self.processing_service.name = user.keychain.text
             self.processing_service.logo = user.keychain.logo + ".svg"
-            scad_filepath = "../ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad"
-            stl_filepath = f"../EmailService/ATTACHMENT/keychain.stl"
+            scad_filepath = "ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad"
+            stl_filepath = "EmailService/ATTACHMENT/keychain.stl"
             self.processing_service.scad_stl_converter(scad_filepath, stl_filepath)
             # self.blob_file_service.upload_file(stl_filepath, os.path.basename(stl_filepath))
 

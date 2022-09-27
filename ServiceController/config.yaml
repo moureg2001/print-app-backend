@@ -1,3 +1,5 @@
 subject: "This Email test Successful"
 body: "Die stl Datei ist Druck Bereit!"
-file_path: "../EmailService/ATTACHMENT/keychain.stl"
+file_path: "EmailService/ATTACHMENT/keychain.stl"
+scad_filepath: "ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad"
+stl_filepath: "EmailService/ATTACHMENT/keychain.stl"

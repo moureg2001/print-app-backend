@@ -1,0 +1,2 @@
+fin_scad_file: "ProcessingService/PROCESSING_DIRECTORY/keychain.scad"
+fout_scad_file: "ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad"

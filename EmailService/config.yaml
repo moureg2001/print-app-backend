@@ -4,4 +4,4 @@ receiver_email: "mregragui@thinkport.digital"
 email_user: "6ed3e5bdc565bf"
 email_password: "ef75cebdf3f3f6"
 port: 2525
-file_path: "../EmailService/ATTACHMENT/keychain.stl"
+file_path: "EmailService/ATTACHMENT/keychain.stl"
