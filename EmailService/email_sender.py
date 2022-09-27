@@ -17,8 +17,6 @@ class EmailSender(ServiceBaseController):
         self.message = MIMEMultipart()
         self.text = ""
         self.__email_init__()
-        # if len(filename) != 0:
-        #     self.add_attachment(filename)
 
     def __email_init__(self):
         # Create a multipart message and set headers
@@ -28,7 +26,7 @@ class EmailSender(ServiceBaseController):
         self.message["Subject"] = self.subject
         self.message["Bcc"] = config['receiver_email']  # Recommended for mass emails
         # Add body to email
-        #self.message.attach(MIMEText(self.body, "plain"))
+        self.message.attach(MIMEText(self.body, "plain"))
 
     def add_attachment(self, filename):
         # filename = "keychain.stl"  # In same directory as script
@@ -59,14 +57,15 @@ class EmailSender(ServiceBaseController):
         try:
             with smtplib.SMTP(config['smtp_ssl'], config['port']) as server:
                 server.login(config['email_user'], config['email_password'])
+                self.add_attachment(config['file_path'])
                 print(f"Text: {self.text}")
                 server.sendmail(config['sender_email'], config['receiver_email'], self.text)
         except Exception as e:
             # Print any error messages to stdout
             print(e)
         # finally:
-        #     server.quit()
-
+        # server.quit()
 
 # mailer = EmailSender("This is the second test e-mail message", "Die stl Datei ist Druck Bereit!",
-# "ATTACHMENT/smtplib.txt") mailer.login_send_email()
+#                      "../EmailService/ATTACHMENT/keychain.stl")
+# mailer.login_send_email()

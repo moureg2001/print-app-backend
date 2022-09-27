@@ -48,8 +48,10 @@ class ProcessingServiceBase(ServiceBaseController):
         for line in osr.errors:
             print(line)
         if osr.good():
-            print("Successfully created example.stl")
+            print("Successfully created keychain.stl")
             os.remove("../ProcessingService/PROCESSING_DIRECTORY/keychain.scad")
+            os.remove("../ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad")
+            self.mediator.notify(self, "E", None)
 
 
 # processing = ProcessingServiceBase("Max", logos[2])

@@ -1,11 +1,7 @@
 from __future__ import annotations
 import os
 from abc import ABC
-
-# from typing import TYPE_CHECKING
-
-# if TYPE_CHECKING:
-
+from .config import config
 
 from ServiceController.user_data import User, Keychain
 
@@ -86,11 +82,14 @@ class ConcreteMediator(ServiceMediator):
 
         elif event == "E":  # Email Service
             print("Mediator reacts on E and triggers following operations: Sending Email")
-            self.email_service.text = ""
-            self.email_service.body = ""
-            self.email_service.filename = ""
-            self.email_service.filename = ""
+
+            # if self.filename is not None:
+            #     self.add_attachment(self.filename)
+            # else:
+            #     self.filename = config['file_path']
+            #     self.add_attachment(self.filename)
             self.email_service.login_send_email()
+            os.remove(config['file_path'])
 
 
 class ServiceBaseController:
@@ -108,7 +107,7 @@ class ServiceBaseController:
         data_service = UserDataServiceBase()
         blob_file_service = AzureBlobFileService()
         blob_logo_service = AzureBlobLogoService()
-        email_service = EmailSender()
+        email_service = EmailSender(config['subject'], config['body'], None)
         processing_service = ProcessingServiceBase()
         self._mediator = ConcreteMediator(data_service, blob_file_service,
                                           blob_logo_service, email_service, processing_service)

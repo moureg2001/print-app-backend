@@ -1,0 +1,3 @@
+subject: "This Email test Successful"
+body: "Die stl Datei ist Druck Bereit!"
+file_path: "../EmailService/ATTACHMENT/keychain.stl"
