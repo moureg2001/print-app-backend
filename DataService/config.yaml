@@ -1,0 +1,9 @@
+azure_storage_connection_string: "DefaultEndpointsProtocol=https;AccountName=blobmanageraccount;AccountKey=/4xuZT2fwFEmvN7rU2z8G10vEZApWj6O3TzbRzT5CGCd9wCXJgrBYlFBJ2YygSBvvHL/XABTnasS+AStug39dA==;EndpointSuffix=core.windows.net"
+logo_container_name: "logo-cnn"
+stl_container_name: "stl-cnn"
+source_folder: "/Users/mouadregragui/workspace/Python-Workspace/blobmanager"
+account_key: "/4xuZT2fwFEmvN7rU2z8G10vEZApWj6O3TzbRzT5CGCd9wCXJgrBYlFBJ2YygSBvvHL/XABTnasS+AStug39dA=="
+connection_stg_acct_url: "https://blobmanageraccount.blob.core.windows.net/"
+account_name: "blobmanageraccount"
+
+#source_folder: "/Users/mouadregragui/workspace/Python-Workspace/blobmanager/LOGO_DIRECTORY/aws-Logo.png"
