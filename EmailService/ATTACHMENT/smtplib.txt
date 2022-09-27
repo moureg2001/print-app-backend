@@ -1,0 +1,15 @@
+import smtplib
+
+sender = "Private Person <from@example.com>"
+receiver = "A Test User <to@example.com>"
+
+message = f"""\
+Subject: Hi Mailtrap
+To: {receiver}
+From: {sender}
+
+This is a test e-mail message."""
+
+with smtplib.SMTP("smtp.mailtrap.io", 2525) as server:
+    server.login("6ed3e5bdc565bf", "ef75cebdf3f3f6")
+    server.sendmail(sender, receiver, message)
