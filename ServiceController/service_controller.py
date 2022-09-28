@@ -1,10 +1,16 @@
 from __future__ import annotations
 import os
 from abc import ABC
+import azure.functions as func
+import tempfile
 from .config import config
 
 from ServiceController.user_data import User, Keychain
 
+
+def create_dir_in_temp():
+    tempFilePath = tempfile.gettempdir()
+    fp = tempfile.NamedTemporaryFile()
 
 class ServiceMediator(ABC):
     def notify(self, sender: object, event: str, data: None) -> None:
