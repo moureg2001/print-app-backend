@@ -105,6 +105,9 @@ class AzureBlobLogoService(BlobStorageService):
         self.mediator.notify(self, "P", None)
         return file_blob
 
+    def download_void(self) -> None:
+        self.mediator.notify(self, "P", None)
+
     def delete(self, filename):
         pass
 
@@ -124,7 +127,6 @@ class AzureBlobLogoService(BlobStorageService):
 def save_file_for_processing(blob, filepath):  # it save the logo and scad file on PROCESSING_DIRECTORY
     with open(filepath, "wb") as file:
         file.write(blob)
-
 
 # blob_file_obj = AzureBlobFileService()
 # blob_logo_obj = AzureBlobLogoService()

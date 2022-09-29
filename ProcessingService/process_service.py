@@ -52,6 +52,8 @@ class ProcessingServiceBase(ServiceBaseController):
             os.remove("ProcessingService/PROCESSING_DIRECTORY/keychain.scad")
             os.remove("ProcessingService/PROCESSING_DIRECTORY/keychain_out.scad")
             self.mediator.notify(self, "E", None)
+        else:
+            self.mediator.notify(self, "E", None)
 
 
 # processing = ProcessingServiceBase("Max", logos[2])

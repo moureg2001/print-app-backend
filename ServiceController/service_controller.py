@@ -12,6 +12,7 @@ def create_dir_in_temp():
     tempFilePath = tempfile.gettempdir()
     fp = tempfile.NamedTemporaryFile()
 
+
 class ServiceMediator(ABC):
     def notify(self, sender: object, event: str, data: None) -> None:
         """The required notify method"""
@@ -70,10 +71,15 @@ class ConcreteMediator(ServiceMediator):
             if os.path.isfile(scad_relative_path):
                 os.remove(scad_relative_path)
             self.save_file_for_processing(self.blob_file_service.download_file("keychain.scad"), scad_relative_path)
-            if len(user.keychain.logo) != 0:
+            print("logo:" + user.keychain.logo)
+            if user.keychain.logo:
                 logo_relative_path = f"ProcessingService/PROCESSING_DIRECTORY/{user.keychain.logo}.svg"
                 self.save_file_for_processing(self.blob_logo_service.download_file(user.keychain.logo + ".svg"),
                                               logo_relative_path)
+            else:
+                self.blob_logo_service.download_void()
+
+
 
         elif event == "P":  # Processing Service
             print("Mediator reacts on P and triggers following operations: -> Processing Service"

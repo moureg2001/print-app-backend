@@ -2,8 +2,10 @@ import logging as log
 from flask import Flask, request
 from flask_restful import Api, Resource, reqparse
 import ServiceController.service_controller as sc
+from flask_cors import CORS
 # https://stkeychainprintwebsite.z6.web.core.windows.net/
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 
@@ -34,6 +36,8 @@ class RestFrontBackendServiceBase(Resource, sc.ServiceBaseController):
 
 
 api.add_resource(RestFrontBackendServiceBase, '/keychain/api/v1.0/users')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
